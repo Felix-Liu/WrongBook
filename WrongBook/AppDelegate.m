@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "AddWrongViewController.h"
+#import "MyViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window.rootViewController = self.tabBarController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -45,6 +50,45 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (UIWindow *)window
+{
+    if (!_window) {
+        _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    }
+    return _window;
+}
+
+- (UITabBarController *)tabBarController {
+    if (!_tabBarController) {
+        _tabBarController = [[UITabBarController alloc] init];
+        
+        ViewController *mainVC = [ViewController new];
+        mainVC.tabBarItem.title = @"错题库";
+        mainVC.tabBarItem.image = [UIImage imageNamed:@"icon-tiku"];
+        mainVC.tabBarItem.selectedImage = [UIImage imageNamed:@"icon-tiku-unselect"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+        navController.navigationBar.backgroundColor = [UIColor whiteColor];
+        
+        AddWrongViewController *addWrongVC = [AddWrongViewController new];
+        addWrongVC.tabBarItem.title = @"添加";
+        addWrongVC.tabBarItem.image = [UIImage imageNamed:@"icon-add"];
+        addWrongVC.tabBarItem.selectedImage = [UIImage imageNamed:@"icon-add-unselect"];
+        UINavigationController *addWrongNavController = [[UINavigationController alloc] initWithRootViewController:addWrongVC];
+        addWrongNavController.navigationBar.backgroundColor = [UIColor whiteColor];
+        
+        MyViewController *myVC = [MyViewController new];
+        myVC.tabBarItem.title = @"我";
+        myVC.tabBarItem.image = [UIImage imageNamed:@"icon-wo"];
+        myVC.tabBarItem.selectedImage = [UIImage imageNamed:@"icon-wo-unselect"];
+        UINavigationController *myNavController = [[UINavigationController alloc] initWithRootViewController:myVC];
+        myNavController.navigationBar.backgroundColor = [UIColor whiteColor];
+        
+        _tabBarController.viewControllers = @[navController, addWrongNavController, myNavController];
+        _tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
+    }
+    return _tabBarController;
 }
 
 

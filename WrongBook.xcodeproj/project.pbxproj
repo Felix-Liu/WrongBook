@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		DCAFED3121A6906800FE2B33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAFED3021A6906800FE2B33 /* AppDelegate.m */; };
 		DCAFED3421A6906800FE2B33 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAFED3321A6906800FE2B33 /* ViewController.m */; };
-		DCAFED3721A6906800FE2B33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAFED3521A6906800FE2B33 /* Main.storyboard */; };
 		DCAFED3921A6906800FE2B33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCAFED3821A6906800FE2B33 /* Assets.xcassets */; };
-		DCAFED3C21A6906800FE2B33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAFED3A21A6906800FE2B33 /* LaunchScreen.storyboard */; };
 		DCAFED3F21A6906800FE2B33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAFED3E21A6906800FE2B33 /* main.m */; };
 		DCAFED4921A6906800FE2B33 /* WrongBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAFED4821A6906800FE2B33 /* WrongBookTests.m */; };
 		DCAFED5421A6906800FE2B33 /* WrongBookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAFED5321A6906800FE2B33 /* WrongBookUITests.m */; };
+		DCAFED6321A694ED00FE2B33 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAFED6221A694ED00FE2B33 /* MyViewController.m */; };
+		DCAFED6621A6950600FE2B33 /* AddWrongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAFED6521A6950600FE2B33 /* AddWrongViewController.m */; };
+		DCF9BA7921A6A9C3007F2205 /* KemuData in Resources */ = {isa = PBXBuildFile; fileRef = DCF9BA7821A6A9C3007F2205 /* KemuData */; };
+		DCF9BA7D21A6A9F3007F2205 /* NianjiData in Resources */ = {isa = PBXBuildFile; fileRef = DCF9BA7C21A6A9F3007F2205 /* NianjiData */; };
+		DCF9BA7F21A6AA77007F2205 /* WrongData in Resources */ = {isa = PBXBuildFile; fileRef = DCF9BA7E21A6AA77007F2205 /* WrongData */; };
+		DCF9BA8221A6AB94007F2205 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA8121A6AB94007F2205 /* Utility.m */; };
+		DCF9BA8921A6ABEC007F2205 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA8521A6ABEC007F2205 /* NSObject+YYModel.m */; };
+		DCF9BA8A21A6ABEC007F2205 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA8721A6ABEC007F2205 /* YYClassInfo.m */; };
+		DCF9BA8D21A6AC18007F2205 /* KemuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA8C21A6AC18007F2205 /* KemuModel.m */; };
+		DCF9BA9021A6AC37007F2205 /* NianjiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA8F21A6AC37007F2205 /* NianjiModel.m */; };
+		DCF9BA9321A6AC57007F2205 /* WrongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA9221A6AC57007F2205 /* WrongModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +49,7 @@
 		DCAFED3021A6906800FE2B33 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DCAFED3221A6906800FE2B33 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DCAFED3321A6906800FE2B33 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DCAFED3621A6906800FE2B33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCAFED3821A6906800FE2B33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DCAFED3B21A6906800FE2B33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCAFED3D21A6906800FE2B33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCAFED3E21A6906800FE2B33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DCAFED4421A6906800FE2B33 /* WrongBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WrongBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +58,26 @@
 		DCAFED4F21A6906800FE2B33 /* WrongBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WrongBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAFED5321A6906800FE2B33 /* WrongBookUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WrongBookUITests.m; sourceTree = "<group>"; };
 		DCAFED5521A6906800FE2B33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCAFED6121A694ED00FE2B33 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		DCAFED6221A694ED00FE2B33 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		DCAFED6421A6950600FE2B33 /* AddWrongViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddWrongViewController.h; sourceTree = "<group>"; };
+		DCAFED6521A6950600FE2B33 /* AddWrongViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddWrongViewController.m; sourceTree = "<group>"; };
+		DCF9BA7821A6A9C3007F2205 /* KemuData */ = {isa = PBXFileReference; lastKnownFileType = text; path = KemuData; sourceTree = "<group>"; };
+		DCF9BA7C21A6A9F3007F2205 /* NianjiData */ = {isa = PBXFileReference; lastKnownFileType = text; path = NianjiData; sourceTree = "<group>"; };
+		DCF9BA7E21A6AA77007F2205 /* WrongData */ = {isa = PBXFileReference; lastKnownFileType = text; path = WrongData; sourceTree = "<group>"; };
+		DCF9BA8021A6AB94007F2205 /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		DCF9BA8121A6AB94007F2205 /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		DCF9BA8421A6ABEC007F2205 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		DCF9BA8521A6ABEC007F2205 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		DCF9BA8621A6ABEC007F2205 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		DCF9BA8721A6ABEC007F2205 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		DCF9BA8821A6ABEC007F2205 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		DCF9BA8B21A6AC18007F2205 /* KemuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KemuModel.h; sourceTree = "<group>"; };
+		DCF9BA8C21A6AC18007F2205 /* KemuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KemuModel.m; sourceTree = "<group>"; };
+		DCF9BA8E21A6AC37007F2205 /* NianjiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NianjiModel.h; sourceTree = "<group>"; };
+		DCF9BA8F21A6AC37007F2205 /* NianjiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NianjiModel.m; sourceTree = "<group>"; };
+		DCF9BA9121A6AC57007F2205 /* WrongModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WrongModel.h; sourceTree = "<group>"; };
+		DCF9BA9221A6AC57007F2205 /* WrongModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WrongModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,15 +128,29 @@
 		DCAFED2E21A6906800FE2B33 /* WrongBook */ = {
 			isa = PBXGroup;
 			children = (
+				DCF9BA8321A6ABEC007F2205 /* YYModel */,
 				DCAFED2F21A6906800FE2B33 /* AppDelegate.h */,
 				DCAFED3021A6906800FE2B33 /* AppDelegate.m */,
 				DCAFED3221A6906800FE2B33 /* ViewController.h */,
 				DCAFED3321A6906800FE2B33 /* ViewController.m */,
-				DCAFED3521A6906800FE2B33 /* Main.storyboard */,
 				DCAFED3821A6906800FE2B33 /* Assets.xcassets */,
-				DCAFED3A21A6906800FE2B33 /* LaunchScreen.storyboard */,
 				DCAFED3D21A6906800FE2B33 /* Info.plist */,
 				DCAFED3E21A6906800FE2B33 /* main.m */,
+				DCAFED6121A694ED00FE2B33 /* MyViewController.h */,
+				DCAFED6221A694ED00FE2B33 /* MyViewController.m */,
+				DCAFED6421A6950600FE2B33 /* AddWrongViewController.h */,
+				DCAFED6521A6950600FE2B33 /* AddWrongViewController.m */,
+				DCF9BA7821A6A9C3007F2205 /* KemuData */,
+				DCF9BA7C21A6A9F3007F2205 /* NianjiData */,
+				DCF9BA7E21A6AA77007F2205 /* WrongData */,
+				DCF9BA8021A6AB94007F2205 /* Utility.h */,
+				DCF9BA8121A6AB94007F2205 /* Utility.m */,
+				DCF9BA8B21A6AC18007F2205 /* KemuModel.h */,
+				DCF9BA8C21A6AC18007F2205 /* KemuModel.m */,
+				DCF9BA8E21A6AC37007F2205 /* NianjiModel.h */,
+				DCF9BA8F21A6AC37007F2205 /* NianjiModel.m */,
+				DCF9BA9121A6AC57007F2205 /* WrongModel.h */,
+				DCF9BA9221A6AC57007F2205 /* WrongModel.m */,
 			);
 			path = WrongBook;
 			sourceTree = "<group>";
@@ -130,6 +171,18 @@
 				DCAFED5521A6906800FE2B33 /* Info.plist */,
 			);
 			path = WrongBookUITests;
+			sourceTree = "<group>";
+		};
+		DCF9BA8321A6ABEC007F2205 /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				DCF9BA8421A6ABEC007F2205 /* NSObject+YYModel.h */,
+				DCF9BA8521A6ABEC007F2205 /* NSObject+YYModel.m */,
+				DCF9BA8621A6ABEC007F2205 /* YYClassInfo.h */,
+				DCF9BA8721A6ABEC007F2205 /* YYClassInfo.m */,
+				DCF9BA8821A6ABEC007F2205 /* YYModel.h */,
+			);
+			path = YYModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +291,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCAFED3C21A6906800FE2B33 /* LaunchScreen.storyboard in Resources */,
+				DCF9BA7F21A6AA77007F2205 /* WrongData in Resources */,
+				DCF9BA7921A6A9C3007F2205 /* KemuData in Resources */,
 				DCAFED3921A6906800FE2B33 /* Assets.xcassets in Resources */,
-				DCAFED3721A6906800FE2B33 /* Main.storyboard in Resources */,
+				DCF9BA7D21A6A9F3007F2205 /* NianjiData in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,8 +319,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF9BA9321A6AC57007F2205 /* WrongModel.m in Sources */,
+				DCAFED6621A6950600FE2B33 /* AddWrongViewController.m in Sources */,
 				DCAFED3421A6906800FE2B33 /* ViewController.m in Sources */,
+				DCF9BA8D21A6AC18007F2205 /* KemuModel.m in Sources */,
+				DCF9BA8921A6ABEC007F2205 /* NSObject+YYModel.m in Sources */,
 				DCAFED3F21A6906800FE2B33 /* main.m in Sources */,
+				DCF9BA8A21A6ABEC007F2205 /* YYClassInfo.m in Sources */,
+				DCF9BA9021A6AC37007F2205 /* NianjiModel.m in Sources */,
+				DCAFED6321A694ED00FE2B33 /* MyViewController.m in Sources */,
+				DCF9BA8221A6AB94007F2205 /* Utility.m in Sources */,
 				DCAFED3121A6906800FE2B33 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,25 +363,6 @@
 			targetProxy = DCAFED5021A6906800FE2B33 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		DCAFED3521A6906800FE2B33 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DCAFED3621A6906800FE2B33 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DCAFED3A21A6906800FE2B33 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DCAFED3B21A6906800FE2B33 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DCAFED5621A6906800FE2B33 /* Debug */ = {
@@ -430,9 +473,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VM7X2GJGGF;
 				INFOPLIST_FILE = WrongBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lianlianpay.WrongBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -444,9 +489,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VM7X2GJGGF;
 				INFOPLIST_FILE = WrongBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lianlianpay.WrongBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
