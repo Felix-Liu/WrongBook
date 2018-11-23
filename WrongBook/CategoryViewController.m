@@ -9,6 +9,7 @@
 #import "CategoryViewController.h"
 #import "YYModel.h"
 #import "Utility.h"
+#import "KemuModel.h"
 
 #define SCREEN_HEIGHT ([[UIScreen mainScreen]bounds].size.height)
 #define TAB_BAR_HEIGHT (SCREEN_HEIGHT == 812.0 ? 83.0f : 49.0f)
@@ -19,10 +20,14 @@
 @interface CategoryViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *categoryTV;
-@property (nonatomic, strong) NSArray *categoryArray;
+@property (nonatomic, strong) NSMutableArray *categoryArray;
 @property (nonatomic, strong) KemuModel *kemu;
 @property (nonatomic, strong) NianjiModel *nianji;
 @property (nonatomic, strong) WrongModel *wrong;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) KemuListModel *kemuListModel;
+@property (nonatomic, strong) NianjiListModel *nianjiListModel;
+@property (nonatomic, strong) NianjiItemModel *nianjiItemModel;
 
 @end
 
@@ -34,6 +39,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.view addSubview:self.segmentedControl];
     [self.view addSubview:self.categoryTV];
     [self.categoryTV reloadData];
     
@@ -54,7 +60,7 @@
         return;
     }
     if (!self.nianji) {
-        msg = @"请选择年级";
+        msg = @"请选择题型、内容";
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
         [alertView show];
         return;
@@ -90,19 +96,13 @@
     switch (section) {
         case 0:
         {
-            KemuListModel *kemuListModel = self.categoryArray[0];
-            numberOfRows = kemuListModel.kemu_list.count;
+            NianjiItemModel *nianjiItemModel = self.categoryArray[section];
+            numberOfRows = nianjiItemModel.kemu_neirong.count;
             break;
         }
         case 1:
         {
-            NianjiListModel *nianjiListModel = self.categoryArray[1];
-            numberOfRows = nianjiListModel.nianji_list.count;
-            break;
-        }
-        case 2:
-        {
-            WrongListModel *wrongListModel = self.categoryArray[2];
+            WrongListModel *wrongListModel = self.categoryArray[section];
             numberOfRows = wrongListModel.wrong_list.count;
             break;
         }
@@ -117,21 +117,8 @@
     switch (indexPath.section) {
         case 0:
         {
-            KemuListModel *kemuListModel = self.categoryArray[0];
-            KemuModel *kemuModel = kemuListModel.kemu_list[indexPath.row];
-            cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
-            cell.textLabel.text = kemuModel.kemu_name;
-            if (kemuModel.checked) {
-                cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            } else {
-                cell.accessoryType = UITableViewCellAccessoryNone;
-            }
-            break;
-        }
-        case 1:
-        {
-            NianjiListModel *nianjiListModel = self.categoryArray[1];
-            NianjiModel *nianjiModel = nianjiListModel.nianji_list[indexPath.row];
+            NianjiItemModel *nianjiItemModel = self.categoryArray[indexPath.section];
+            NianjiModel *nianjiModel = nianjiItemModel.kemu_neirong[indexPath.row];
             cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
             cell.textLabel.text = nianjiModel.nianji_name;
             if (nianjiModel.checked) {
@@ -141,9 +128,9 @@
             }
             break;
         }
-        case 2:
+        case 1:
         {
-            WrongListModel *wrongListModel = self.categoryArray[2];
+            WrongListModel *wrongListModel = self.categoryArray[indexPath.section];
             WrongModel *wrongModel = wrongListModel.wrong_list[indexPath.row];
             cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
             cell.textLabel.text = wrongModel.wrong_name;
@@ -167,12 +154,9 @@
     UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH - 30, 40)];
     switch (section) {
         case 0:
-            titleLbl.text = @"科目";
+            titleLbl.text = @"题型、内容";
             break;
         case 1:
-            titleLbl.text = @"年级";
-            break;
-        case 2:
             titleLbl.text = @"错误类型";
             break;
         default:
@@ -190,29 +174,18 @@
     switch (indexPath.section) {
         case 0:
         {
-            KemuListModel *kemuListModel = self.categoryArray[0];
-            [kemuListModel.kemu_list enumerateObjectsUsingBlock:^(KemuModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                obj.checked = NO;
-            }];
-            KemuModel *kemuModel = kemuListModel.kemu_list[indexPath.row];
-            kemuModel.checked = YES;
-            self.kemu = kemuModel;
-            break;
-        }
-        case 1:
-        {
-            NianjiListModel *nianjiListModel = self.categoryArray[1];
-            NianjiModel *nianjiModel = nianjiListModel.nianji_list[indexPath.row];
-            [nianjiListModel.nianji_list enumerateObjectsUsingBlock:^(NianjiModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NianjiItemModel *nianjiItemModel = self.categoryArray[indexPath.section];
+            NianjiModel *nianjiModel = nianjiItemModel.kemu_neirong[indexPath.row];
+            [nianjiItemModel.kemu_neirong enumerateObjectsUsingBlock:^(NianjiModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 obj.checked = NO;
             }];
             nianjiModel.checked = YES;
             self.nianji = nianjiModel;
             break;
         }
-        case 2:
+        case 1:
         {
-            WrongListModel *wrongListModel = self.categoryArray[2];
+            WrongListModel *wrongListModel = self.categoryArray[indexPath.section];
             [wrongListModel.wrong_list enumerateObjectsUsingBlock:^(WrongModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 obj.checked = NO;
             }];
@@ -239,7 +212,7 @@
 
 - (UITableView *)categoryTV {
     if (!_categoryTV) {
-        _categoryTV = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT - STATUS_BAR_HEIGHT) style:UITableViewStylePlain];
+        _categoryTV = [[UITableView alloc] initWithFrame:CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT - STATUS_BAR_HEIGHT - 70) style:UITableViewStylePlain];
         _categoryTV.dataSource = self;
         _categoryTV.delegate = self;
         [_categoryTV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellIdentifier"];
@@ -247,14 +220,45 @@
     return _categoryTV;
 }
 
-- (NSArray *)categoryArray {
+- (NSMutableArray *)categoryArray {
     if (!_categoryArray) {
-        KemuListModel *kemuListModel = [KemuListModel yy_modelWithJSON:[Utility readLocalFileWithName:@"KemuData"]];
-        NianjiListModel *nianjiListModel = [NianjiListModel yy_modelWithJSON:[Utility readLocalFileWithName:@"NianjiData"]];
+        self.nianjiListModel = [NianjiListModel yy_modelWithJSON:[Utility readLocalFileWithName:@"NianjiData"]];
+        self.nianjiItemModel = self.nianjiListModel.nianji_list[self.segmentedControl.selectedSegmentIndex];
         WrongListModel *wrongListModel = [WrongListModel yy_modelWithJSON:[Utility readLocalFileWithName:@"WrongData"]];
-        _categoryArray = @[kemuListModel, nianjiListModel, wrongListModel];
+        _categoryArray = [@[self.nianjiItemModel, wrongListModel] mutableCopy];
     }
     return _categoryArray;
+}
+
+- (KemuListModel *)kemuListModel {
+    if (!_kemuListModel) {
+        _kemuListModel = [KemuListModel yy_modelWithJSON:[Utility readLocalFileWithName:@"KemuData"]];
+    }
+    return _kemuListModel;
+}
+
+- (UISegmentedControl *)segmentedControl {
+    if (!_segmentedControl) {
+        NSMutableArray *kemuArray = [NSMutableArray new];
+        [self.kemuListModel.kemu_list enumerateObjectsUsingBlock:^(KemuModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [kemuArray addObject:obj.kemu_name];
+        }];
+        _segmentedControl = [[UISegmentedControl alloc] initWithItems:kemuArray];
+        _segmentedControl.frame = CGRectMake(15, 15, [UIScreen mainScreen].bounds.size.width - 30, 40);
+        _segmentedControl.selectedSegmentIndex = 0;
+        self.kemu = self.kemuListModel.kemu_list[_segmentedControl.selectedSegmentIndex];
+        [_segmentedControl addTarget:self action:@selector(segmentValueChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _segmentedControl;
+}
+
+- (void)segmentValueChanged:(id)sender {
+    self.kemu = self.kemuListModel.kemu_list[_segmentedControl.selectedSegmentIndex];
+    [self.categoryArray removeAllObjects];
+    self.nianjiItemModel = self.nianjiListModel.nianji_list[self.segmentedControl.selectedSegmentIndex];
+    WrongListModel *wrongListModel = [WrongListModel yy_modelWithJSON:[Utility readLocalFileWithName:@"WrongData"]];
+    self.categoryArray = [@[self.nianjiItemModel, wrongListModel] mutableCopy];
+    [self.categoryTV reloadData];
 }
 
 @end

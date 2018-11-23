@@ -16,8 +16,15 @@
 
 @end
 
+@interface NianjiItemModel : NSObject
+
+@property (nonatomic, strong) NSString *kemu_id;
+@property (nonatomic, strong) NSArray<NianjiModel *> *kemu_neirong;
+
+@end
+
 @interface NianjiListModel : NSObject
 
-@property (nonatomic, strong) NSArray<NianjiModel *> *nianji_list;
+@property (nonatomic, strong) NSArray<NianjiItemModel *> *nianji_list;
 
 @end

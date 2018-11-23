@@ -12,10 +12,18 @@
 
 @end
 
+@implementation NianjiItemModel
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{ @"kemu_neirong" : [NianjiModel class] };
+}
+
+@end
+
 @implementation NianjiListModel
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{ @"nianji_list" : [NianjiModel class] };
+    return @{ @"nianji_list" : [NianjiItemModel class] };
 }
 
 @end
