@@ -76,6 +76,9 @@
     [self createDir:self.kemuModel.kemu_name];
     [self saveImage:self.wrongIV.image];
     [self writeToPlist];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SuccessNotification" object:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"保存成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+    [alertView show];
 }
 
 - (void)writeToPlist {

@@ -40,6 +40,26 @@
     [self.view addSubview:self.wrongBookTV];
     [self.wrongBookTV reloadData];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:@"SuccessNotification" object:nil];
+}
+
+- (void)refreshData {
+    [self.dbModelArray removeAllObjects];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *dbPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"db.plist"];
+    NSMutableArray *dbArray = [[NSMutableArray alloc] initWithContentsOfFile:dbPath];
+    [dbArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.dbModelArray addObject:[DBModel yy_modelWithJSON:obj]];
+    }];
+    __block DBModel *dbModel = nil;
+    [self.dbModelArray enumerateObjectsUsingBlock:^(DBModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.kemu_id integerValue] == self.segmentedControl.selectedSegmentIndex + 1) {
+            dbModel = obj;
+        }
+    }];
+    self.wrongInfoArray = dbModel.wrong_info;
+    [self.wrongBookTV reloadData];
 }
 
 
