@@ -146,10 +146,22 @@
     BOOL result = [accountDict writeToFile:filePath atomically:YES];
     if (result) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+        [self recordLoginStatus];
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"注册失败" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
         [alertView show];
     }
+}
+
+- (void)recordLoginStatus {
+    //获取路径对象
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [pathArray objectAtIndex:0];
+    //获取文件的完整路径
+    NSString *filePath = [path stringByAppendingPathComponent:@"login_status.plist"];
+    
+    NSDictionary *loginStatusDict = @{ @"login_status": @"1" };
+    [loginStatusDict writeToFile:filePath atomically:YES];
 }
 
 @end
