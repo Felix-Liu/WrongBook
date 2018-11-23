@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "AddWrongViewController.h"
 #import "MyViewController.h"
+#import "RegisterViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,9 +22,44 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window.rootViewController = self.tabBarController;
+    RegisterViewController *registerVC = [[RegisterViewController alloc] init];
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [pathArray objectAtIndex:0];
+    //获取文件的完整路径
+    NSString *filePath = [path stringByAppendingPathComponent:@"account.plist"];
+    NSDictionary *accountDict = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+    if (!accountDict) {
+        self.window.rootViewController = registerVC;
+    } else {
+        NSString *filePath1 = [path stringByAppendingPathComponent:@"login_status.plist"];
+        NSDictionary *loginStatusDict = [[NSDictionary alloc] initWithContentsOfFile:filePath1];
+        if ([loginStatusDict[@"login_status"] isEqualToString:@"1"]) {
+            self.window.rootViewController = self.tabBarController;
+        } else {
+            self.window.rootViewController = loginVC;
+        }
+    }
     [self.window makeKeyAndVisible];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeViewController) name:@"LoginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(signUp) name:@"SignUp" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logout) name:@"LogoutSuccess" object:nil];
     return YES;
+}
+
+- (void)changeViewController {
+    self.window.rootViewController = self.tabBarController;
+}
+
+- (void)logout {
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    self.window.rootViewController = loginVC;
+}
+
+- (void)signUp {
+    RegisterViewController *registerVC = [[RegisterViewController alloc] init];
+    self.window.rootViewController = registerVC;
 }
 
 
