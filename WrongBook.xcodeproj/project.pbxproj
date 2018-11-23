@@ -26,6 +26,8 @@
 		DCF9BA9321A6AC57007F2205 /* WrongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA9221A6AC57007F2205 /* WrongModel.m */; };
 		DCF9BA9621A6CD0E007F2205 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA9521A6CD0E007F2205 /* CategoryViewController.m */; };
 		DCF9BAD221A7A884007F2205 /* DBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BAD121A7A884007F2205 /* DBModel.m */; };
+		DCF9BAD821A7D529007F2205 /* WrongInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BAD721A7D529007F2205 /* WrongInfoCell.m */; };
+		DCF9BADB21A7E17A007F2205 /* UIImage+SubImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BAD921A7E17A007F2205 /* UIImage+SubImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,10 @@
 		DCF9BACE21A6E187007F2205 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DCF9BAD021A7A884007F2205 /* DBModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBModel.h; sourceTree = "<group>"; };
 		DCF9BAD121A7A884007F2205 /* DBModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBModel.m; sourceTree = "<group>"; };
+		DCF9BAD621A7D529007F2205 /* WrongInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WrongInfoCell.h; sourceTree = "<group>"; };
+		DCF9BAD721A7D529007F2205 /* WrongInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WrongInfoCell.m; sourceTree = "<group>"; };
+		DCF9BAD921A7E17A007F2205 /* UIImage+SubImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SubImage.m"; path = "../../UIImage+SubImage.m"; sourceTree = "<group>"; };
+		DCF9BADA21A7E17A007F2205 /* UIImage+SubImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+SubImage.h"; path = "../../UIImage+SubImage.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,8 @@
 		DCAFED2E21A6906800FE2B33 /* WrongBook */ = {
 			isa = PBXGroup;
 			children = (
+				DCF9BADA21A7E17A007F2205 /* UIImage+SubImage.h */,
+				DCF9BAD921A7E17A007F2205 /* UIImage+SubImage.m */,
 				DCF9BA8321A6ABEC007F2205 /* YYModel */,
 				DCAFED2F21A6906800FE2B33 /* AppDelegate.h */,
 				DCAFED3021A6906800FE2B33 /* AppDelegate.m */,
@@ -164,6 +172,8 @@
 				DCF9BA9521A6CD0E007F2205 /* CategoryViewController.m */,
 				DCF9BAD021A7A884007F2205 /* DBModel.h */,
 				DCF9BAD121A7A884007F2205 /* DBModel.m */,
+				DCF9BAD621A7D529007F2205 /* WrongInfoCell.h */,
+				DCF9BAD721A7D529007F2205 /* WrongInfoCell.m */,
 			);
 			path = WrongBook;
 			sourceTree = "<group>";
@@ -341,11 +351,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF9BADB21A7E17A007F2205 /* UIImage+SubImage.m in Sources */,
 				DCF9BA9321A6AC57007F2205 /* WrongModel.m in Sources */,
 				DCAFED6621A6950600FE2B33 /* AddWrongViewController.m in Sources */,
 				DCAFED3421A6906800FE2B33 /* ViewController.m in Sources */,
 				DCF9BA8D21A6AC18007F2205 /* KemuModel.m in Sources */,
 				DCF9BA9621A6CD0E007F2205 /* CategoryViewController.m in Sources */,
+				DCF9BAD821A7D529007F2205 /* WrongInfoCell.m in Sources */,
 				DCF9BA8921A6ABEC007F2205 /* NSObject+YYModel.m in Sources */,
 				DCAFED3F21A6906800FE2B33 /* main.m in Sources */,
 				DCF9BA8A21A6ABEC007F2205 /* YYClassInfo.m in Sources */,

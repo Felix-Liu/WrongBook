@@ -10,6 +10,7 @@
 #import "CategoryViewController.h"
 #import "DBModel.h"
 #import "YYModel.h"
+#import "UIImage+SubImage.h"
 
 #define SCREEN_HEIGHT ([[UIScreen mainScreen]bounds].size.height)
 #define TAB_BAR_HEIGHT (SCREEN_HEIGHT == 812.0 ? 83.0f : 49.0f)
@@ -195,14 +196,6 @@
     }
 }
 
-- (void)getImage {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"demo.png"]];
-    // 保存文件的名称
-    UIImage *img = [UIImage imageWithContentsOfFile:filePath];
-    NSLog(@"=== %@", img);
-}
-
 
 - (void)addCategoryBtnPressed:(id)sender {
     CategoryViewController *categoryVC = [CategoryViewController new];
@@ -277,7 +270,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    self.wrongIV.image = image;
+    self.wrongIV.image = [image rescaleImageToSize:CGSizeMake(500, 500)];
     [picker dismissViewControllerAnimated:NO completion:nil];
 }
 
