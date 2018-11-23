@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *wrong_id;
 @property (nonatomic, strong) NSString *wrong_name;
+@property (nonatomic, assign) BOOL checked;
 
 @end
 

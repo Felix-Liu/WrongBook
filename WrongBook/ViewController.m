@@ -43,6 +43,7 @@
         }];
         _segmentedControl = [[UISegmentedControl alloc] initWithItems:kemuArray];
         _segmentedControl.frame = CGRectMake(15, 15, [UIScreen mainScreen].bounds.size.width - 30, 40);
+        _segmentedControl.selectedSegmentIndex = 0;
     }
     return _segmentedControl;
 }

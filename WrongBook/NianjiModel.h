@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *nianji_id;
 @property (nonatomic, strong) NSString *nianji_name;
+@property (nonatomic, assign) BOOL checked;
 
 @end
 

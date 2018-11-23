@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     self.title = @"我";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)didReceiveMemoryWarning {

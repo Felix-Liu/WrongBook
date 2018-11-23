@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *kemu_id;
 @property (nonatomic, strong) NSString *kemu_name;
+@property (nonatomic, assign) BOOL checked;
 
 @end
 

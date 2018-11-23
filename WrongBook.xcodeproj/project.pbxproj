@@ -24,6 +24,8 @@
 		DCF9BA8D21A6AC18007F2205 /* KemuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA8C21A6AC18007F2205 /* KemuModel.m */; };
 		DCF9BA9021A6AC37007F2205 /* NianjiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA8F21A6AC37007F2205 /* NianjiModel.m */; };
 		DCF9BA9321A6AC57007F2205 /* WrongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA9221A6AC57007F2205 /* WrongModel.m */; };
+		DCF9BA9621A6CD0E007F2205 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BA9521A6CD0E007F2205 /* CategoryViewController.m */; };
+		DCF9BAD221A7A884007F2205 /* DBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF9BAD121A7A884007F2205 /* DBModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,12 @@
 		DCF9BA8F21A6AC37007F2205 /* NianjiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NianjiModel.m; sourceTree = "<group>"; };
 		DCF9BA9121A6AC57007F2205 /* WrongModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WrongModel.h; sourceTree = "<group>"; };
 		DCF9BA9221A6AC57007F2205 /* WrongModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WrongModel.m; sourceTree = "<group>"; };
+		DCF9BA9421A6CD0E007F2205 /* CategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		DCF9BA9521A6CD0E007F2205 /* CategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		DCF9BACC21A6E13C007F2205 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DCF9BACE21A6E187007F2205 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DCF9BAD021A7A884007F2205 /* DBModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBModel.h; sourceTree = "<group>"; };
+		DCF9BAD121A7A884007F2205 /* DBModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,7 @@
 				DCAFED4721A6906800FE2B33 /* WrongBookTests */,
 				DCAFED5221A6906800FE2B33 /* WrongBookUITests */,
 				DCAFED2D21A6906800FE2B33 /* Products */,
+				DCF9BACB21A6E13C007F2205 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +160,10 @@
 				DCF9BA8F21A6AC37007F2205 /* NianjiModel.m */,
 				DCF9BA9121A6AC57007F2205 /* WrongModel.h */,
 				DCF9BA9221A6AC57007F2205 /* WrongModel.m */,
+				DCF9BA9421A6CD0E007F2205 /* CategoryViewController.h */,
+				DCF9BA9521A6CD0E007F2205 /* CategoryViewController.m */,
+				DCF9BAD021A7A884007F2205 /* DBModel.h */,
+				DCF9BAD121A7A884007F2205 /* DBModel.m */,
 			);
 			path = WrongBook;
 			sourceTree = "<group>";
@@ -183,6 +196,15 @@
 				DCF9BA8821A6ABEC007F2205 /* YYModel.h */,
 			);
 			path = YYModel;
+			sourceTree = "<group>";
+		};
+		DCF9BACB21A6E13C007F2205 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCF9BACE21A6E187007F2205 /* Foundation.framework */,
+				DCF9BACC21A6E13C007F2205 /* UIKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,11 +345,13 @@
 				DCAFED6621A6950600FE2B33 /* AddWrongViewController.m in Sources */,
 				DCAFED3421A6906800FE2B33 /* ViewController.m in Sources */,
 				DCF9BA8D21A6AC18007F2205 /* KemuModel.m in Sources */,
+				DCF9BA9621A6CD0E007F2205 /* CategoryViewController.m in Sources */,
 				DCF9BA8921A6ABEC007F2205 /* NSObject+YYModel.m in Sources */,
 				DCAFED3F21A6906800FE2B33 /* main.m in Sources */,
 				DCF9BA8A21A6ABEC007F2205 /* YYClassInfo.m in Sources */,
 				DCF9BA9021A6AC37007F2205 /* NianjiModel.m in Sources */,
 				DCAFED6321A694ED00FE2B33 /* MyViewController.m in Sources */,
+				DCF9BAD221A7A884007F2205 /* DBModel.m in Sources */,
 				DCF9BA8221A6AB94007F2205 /* Utility.m in Sources */,
 				DCAFED3121A6906800FE2B33 /* AppDelegate.m in Sources */,
 			);
