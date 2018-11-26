@@ -273,7 +273,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    self.wrongIV.image = [image rescaleImageToSize:CGSizeMake(500, 500)];
+    self.wrongIV.image = [image rescaleImageToSize:CGSizeMake(image.size.width / 4, image.size.height / 4)];
     [picker dismissViewControllerAnimated:NO completion:nil];
 }
 

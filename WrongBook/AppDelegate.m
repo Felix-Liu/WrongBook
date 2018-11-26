@@ -48,6 +48,11 @@
     return YES;
 }
 
++ (AppDelegate *)sharedAppDelegate
+{
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 - (void)changeViewController {
     self.window.rootViewController = self.tabBarController;
 }

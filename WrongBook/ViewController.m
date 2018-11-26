@@ -12,6 +12,7 @@
 #import "KemuModel.h"
 #import "DBModel.h"
 #import "WrongInfoCell.h"
+#import "AppDelegate.h"
 
 #define SCREEN_HEIGHT ([[UIScreen mainScreen]bounds].size.height)
 #define TAB_BAR_HEIGHT (SCREEN_HEIGHT == 812.0 ? 83.0f : 49.0f)
@@ -26,6 +27,9 @@
 @property (nonatomic, strong) UITableView *wrongBookTV;
 @property (nonatomic, strong) NSMutableArray *dbModelArray;
 @property (nonatomic, strong) NSMutableArray *wrongInfoArray;
+@property (nonatomic, strong) UIImageView *bigIV;
+@property (nonatomic, strong) UIView *bgView;
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
@@ -131,7 +135,24 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    WrongInfoModel *infoModel = self.wrongInfoArray[indexPath.row];
+    __block DBModel *dbModel = nil;
+    [self.dbModelArray enumerateObjectsUsingBlock:^(DBModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.kemu_id integerValue] == self.segmentedControl.selectedSegmentIndex + 1) {
+            dbModel = obj;
+        }
+    }];
+    self.bigIV.image = [self getImageWithName:infoModel.image_name kemu:dbModel.kemu_name];
+    [[AppDelegate sharedAppDelegate].window addSubview:self.bigIV];
+}
+
+- (UIImage *)getImageWithName:(NSString *)imageName kemu:(NSString *)kemu_name {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@.jpeg", kemu_name, imageName]];
+    // 保存文件的名称
+    UIImage *img = [UIImage imageWithContentsOfFile:filePath];
+    NSLog(@"=== %@", img);
+    return img;
 }
 
 - (NSMutableArray *)dbModelArray {
@@ -158,6 +179,37 @@
         _wrongInfoArray = dbModel.wrong_info;
     }
     return _wrongInfoArray;
+}
+
+- (UIImageView *)bigIV {
+    if (!_bigIV) {
+        _bigIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        _bigIV.contentMode = UIViewContentModeScaleAspectFit;
+        _bigIV.backgroundColor = [UIColor blackColor];
+        _bigIV.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
+        [_bigIV addGestureRecognizer:tapped];
+    }
+    return _bigIV;
+}
+
+- (UIView *)bgView {
+    if (!_bgView) {
+        _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    }
+    return _bgView;
+}
+
+- (void)tapped {
+    [self.bigIV removeFromSuperview];
+}
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] init];
+        _scrollView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    }
+    return _scrollView;
 }
 
 @end
